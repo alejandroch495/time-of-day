@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" id="body">
 
 <head>
     <meta charset="utf-8" />
@@ -11,6 +11,15 @@
             margin: 0;
         }
         
+        html {
+            height: 100vh;
+            width: 100vw;
+            display: flex;
+            flex-flow: column;
+            align-items: center;
+            justify-content: center;
+        }
+        
         main {
             display: flex;
             flex-direction: column;
@@ -18,7 +27,7 @@
         }
         
         #myDiv {
-            background: rgba(99, 99, 99, .5);
+            font-size: 3em;
             height: 400px;
             width: 400px;
             display: flex;
@@ -40,7 +49,7 @@
             /* center in html element */
             background-color: #fff;
             padding: 20px;
-            min-height: 100%;
+            min-height: 75%;
             /* keeps from getting too large on wide screen */
         }
         
@@ -100,11 +109,11 @@
         }
     </style>
     <!--[if ltIE9]>
-       <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+       <scrip src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></scrip>
      <![endif]-->
 </head>
 
-<body>
+<body id="box">
     <header>
         <h1 class="masthead">Time of Day</h1>
 
@@ -114,7 +123,7 @@
             <h3>An IT 121 assignment by Alejandro Chavez.</h3>
         </header>
         <div id="myDiv">
-            <p>Greeting </p>
+            <p id="greeting">Greeting </p>
         </div>
     </main>
     <footer>
@@ -124,6 +133,69 @@
       </small>
     </footer>
     <!-- END Footer -->
+    <script>
+        var msgbg = document.getElementById("box");
+        var greeting = document.getElementById("greeting");
+        var bg = document.getElementById("body");
+        var time = new Date().getHours();
+        var morning = [5, 12]
+        var afternoon = [12, 18]
+        var evening = [18, 23]
+
+
+
+
+        function greetingImg() {
+            if (time < morning[1] && time >= morning[0]) {
+                bg.style.background = "url(https://images.pexels.com/photos/1477851/pexels-photo-1477851.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940) no-repeat center center fixed";
+                msgbg.style.background = "rgba(1,1,1,.45)"
+                msgbg.style.color = "white"
+                msgbg.style.boxShadow = "1px 1px 5px black, 1px 1px 5px black"
+                greeting.style.color = "white"
+                greeting.style.textShadow = "1px 2px 5px black, 1px 2px 5px black"
+            } else if (time < afternoon[1] && time >= afternoon[0]) {
+                bg.style.background = "url(https://images.pexels.com/photos/747964/pexels-photo-747964.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940) no-repeat center center fixed";
+                msgbg.style.background = "rgba(1,1,1,.45)"
+                msgbg.style.color = "white"
+                msgbg.style.boxShadow = "1px 1px 5px black, 1px 1px 5px black"
+                greeting.style.color = "white"
+                greeting.style.textShadow = "1px 2px 5px black, 1px 2px 5px black"
+            } else if (time < evening[1] && time >= evening[0]) {
+                bg.style.background = "url(https://images.pexels.com/photos/33545/sunrise-phu-quoc-island-ocean.jpg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940) no-repeat center center fixed";
+                msgbg.style.background = "rgba(1,1,1,.45)"
+                msgbg.style.color = "white"
+                msgbg.style.boxShadow = "1px 1px 5px black, 1px 1px 5px black"
+                greeting.style.color = "white"
+                greeting.style.textShadow = "1px 2px 5px black, 1px 2px 5px black"
+            } else {
+                bg.style.background = "url(https://images.pexels.com/photos/42148/pexels-photo-42148.jpeg?auto=compress&cs=tinysrgb&dpr=3&h=750&w=1260) no-repeat center center fixed";
+                msgbg.style.background = "rgba(1,1,1,.45)"
+                msgbg.style.color = "white"
+                msgbg.style.boxShadow = "1px 1px 5px black, 1px 1px 5px black"
+                greeting.style.color = "white"
+                greeting.style.textShadow = "1px 2px 5px black, 1px 2px 5px black"
+
+
+            }
+        }
+
+        function myfunction() {
+            var greetingmsg;
+
+            if (time < morning[1] && time >= morning[0]) {
+                greetingmsg = "Good Morning";
+            } else if (time < afternoon[1] && time >= afternoon[0]) {
+                greetingmsg = "Good Afternoon";
+            } else if (time < evening[1] && time >= evening[0]) {
+                greetingmsg = "Good Evening";
+            } else {
+                greetingmsg = "Good Night";
+            }
+            greetingImg();
+            greeting.innerText = greetingmsg;
+        }
+        myfunction();
+    </script>
 </body>
 
 </html>
