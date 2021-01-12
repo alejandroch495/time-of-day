@@ -29,10 +29,11 @@
         #myDiv {
             font-size: 3em;
             height: 400px;
-            width: 400px;
+            width: 80%;
             display: flex;
             justify-content: center;
             align-items: center;
+            text-align: center;
         }
         
         html {
@@ -121,7 +122,7 @@
 
 <body id="box">
     <header>
-        <h1 class="masthead">hour of Day</h1>
+        <h1 class="masthead">Time of Day</h1>
 
     </header>
     <main>
@@ -133,17 +134,25 @@
         </div>
     </main>
     <footer>
-        <small>&copy; 2013, All Rights Reserved ~
-      <a href="https://validator.w3.org/check/referer" target="_blank">Valid HTML</a> ~
-      <a href="https://jigsaw.w3.org/css-validator/check?uri=referer" target="_blank">Valid CSS</a>
-      </small>
+        <small id="copyright">
+        <a href="https://validator.w3.org/check/referer" target="_blank">Valid HTML</a> ~
+        <a href="https://jigsaw.w3.org/css-validator/check?uri=referer" target="_blank">Valid CSS</a>
+        </small>
     </footer>
     <!-- END Footer -->
     <script>
         const msgbg = document.getElementById("box");
         const greeting = document.getElementById("greeting");
         const bg = document.getElementById("body");
+        const copy = document.getElementById("copyright");
         var hour = new Date().getHours();
+        var year = new Date().getFullYear();
+        var dayOfWeek = new Date().getDay();
+        var day = new Date().getDate();
+        var monthnum = new Date().getMonth();
+        var month = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+
+        var week = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
         var morning = [5, 12]
         var afternoon = [12, 18]
         var evening = [18, 23]
@@ -187,18 +196,27 @@
 
         function myfunction() {
             var greetingmsg;
+            copy.innerHTML = "&copy; 2015-" + year + " , All Rights Reserved ~" + "<a href=\"https:\/\/validator.w3.org\/check\/referer\" target=\"_blank\">Valid HTML<\/a> ~<a href=\"https:\/\/jigsaw.w3.org\/css-validator\/check?uri=referer\" target=\"_blank\">Valid CSS<\/a>"
 
             if (hour < morning[1] && hour >= morning[0]) {
-                greetingmsg = "Good Morning";
+
+                greetingmsg = "Good&nbsp;Morning it&nbsp;is&nbsp;" + week[dayOfWeek] + " " + month[monthnum] + "&nbsp;/&nbsp;" + day + "&nbsp;/&nbsp;" + year;
+
             } else if (hour < afternoon[1] && hour >= afternoon[0]) {
-                greetingmsg = "Good Afternoon";
+
+                greetingmsg = "Good&nbsp;Afternoon it&nbsp;is&nbsp;" + week[dayOfWeek] + " " + month[monthnum] + "&nbsp;/&nbsp;" + day + "&nbsp;/&nbsp;" + year;
+
             } else if (hour < evening[1] && hour >= evening[0]) {
-                greetingmsg = "Good Evening";
+
+                greetingmsg = "Good&nbsp;Evening it&nbsp;is&nbsp;" + week[dayOfWeek] + " " + month[monthnum] + "&nbsp;/&nbsp;" + day + "&nbsp;/&nbsp;" + year;
+
             } else {
-                greetingmsg = "Good Night";
+
+                greetingmsg = "Good&nbsp;Night it&nbsp;is&nbsp;" + week[dayOfWeek] + " " + month[monthnum] + "&nbsp;/&nbsp;" + day + "&nbsp;/&nbsp;" + year;
             }
             greetingImg();
-            greeting.innerText = greetingmsg;
+
+            greeting.innerHTML = greetingmsg;
         }
         myfunction();
     </script>
