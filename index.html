@@ -121,7 +121,7 @@
 
 <body id="box">
     <header>
-        <h1 class="masthead">Time of Day</h1>
+        <h1 class="masthead">hour of Day</h1>
 
     </header>
     <main>
@@ -143,7 +143,7 @@
         const msgbg = document.getElementById("box");
         const greeting = document.getElementById("greeting");
         const bg = document.getElementById("body");
-        var time = new Date().getHours();
+        var hour = new Date().getHours();
         var morning = [5, 12]
         var afternoon = [12, 18]
         var evening = [18, 23]
@@ -152,21 +152,21 @@
 
 
         function greetingImg() {
-            if (time < morning[1] && time >= morning[0]) {
+            if (hour < morning[1] && hour >= morning[0]) {
                 bg.style.background = "url(https://images.pexels.com/photos/1477851/pexels-photo-1477851.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940) no-repeat center center fixed";
                 msgbg.style.background = "rgba(1,1,1,.45)"
                 msgbg.style.color = "white"
                 msgbg.style.boxShadow = "1px 1px 5px black, 1px 1px 5px black"
                 greeting.style.color = "white"
                 greeting.style.textShadow = "1px 2px 5px black, 1px 2px 5px black"
-            } else if (time < afternoon[1] && time >= afternoon[0]) {
+            } else if (hour < afternoon[1] && hour >= afternoon[0]) {
                 bg.style.background = "url(https://images.pexels.com/photos/747964/pexels-photo-747964.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940) no-repeat center center fixed";
                 msgbg.style.background = "rgba(1,1,1,.45)"
                 msgbg.style.color = "white"
                 msgbg.style.boxShadow = "1px 1px 5px black, 1px 1px 5px black"
                 greeting.style.color = "white"
                 greeting.style.textShadow = "1px 2px 5px black, 1px 2px 5px black"
-            } else if (time < evening[1] && time >= evening[0]) {
+            } else if (hour < evening[1] && hour >= evening[0]) {
                 bg.style.background = "url(https://images.pexels.com/photos/33545/sunrise-phu-quoc-island-ocean.jpg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940) no-repeat center center fixed";
                 msgbg.style.background = "rgba(150,111,214,.25)"
                 msgbg.style.color = "white"
@@ -188,11 +188,11 @@
         function myfunction() {
             var greetingmsg;
 
-            if (time < morning[1] && time >= morning[0]) {
+            if (hour < morning[1] && hour >= morning[0]) {
                 greetingmsg = "Good Morning";
-            } else if (time < afternoon[1] && time >= afternoon[0]) {
+            } else if (hour < afternoon[1] && hour >= afternoon[0]) {
                 greetingmsg = "Good Afternoon";
-            } else if (time < evening[1] && time >= evening[0]) {
+            } else if (hour < evening[1] && hour >= evening[0]) {
                 greetingmsg = "Good Evening";
             } else {
                 greetingmsg = "Good Night";
