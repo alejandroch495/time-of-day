@@ -40,6 +40,9 @@
         }
         
         body {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-evenly;
             font-family: Arial, Helvetica, sans-serif;
             max-width: 960px;
             /* keeps from getting too large on wide screen */
@@ -134,9 +137,9 @@
     </footer>
     <!-- END Footer -->
     <script>
-        var msgbg = document.getElementById("box");
-        var greeting = document.getElementById("greeting");
-        var bg = document.getElementById("body");
+        const msgbg = document.getElementById("box");
+        const greeting = document.getElementById("greeting");
+        const bg = document.getElementById("body");
         var time = new Date().getHours();
         var morning = [5, 12]
         var afternoon = [12, 18]
